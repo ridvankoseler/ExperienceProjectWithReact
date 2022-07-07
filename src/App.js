@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+// import { FaAngleDoubleRight } from "react-icons/fa";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import axios from "axios"
+import { useEffect,useState } from "react";
+import Main from "./components/Main";
+
 
 function App() {
+  const url = "https://course-api.com/react-tabs-project";
+  
+  const [info, setInfo] = useState()
+  
+  const getInfo = async ()=> {
+    
+    try {
+      const {data} = await axios.get(url)
+      setInfo(data)
+      // console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+    
+    
+  }
+  console.log(info);
+  useEffect(() => {
+    getInfo();
+  }, [])
+  
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <>
+    <Header/>
+    <Nav/>
+    <Main info={info}/>
+  </>
+  )
 }
 
 export default App;
