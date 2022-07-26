@@ -1,10 +1,10 @@
-import React from 'react'
+import loadingGif from './../assets/loading.gif'
 
 const Loading = () => {
   return (
     
       <div className='d-flex justify-content-center align-items-center'>
-        <h1>Loading...</h1>
+        <h1><img className='imgDiv' src={loadingGif} alt="img" /></h1>
       </div>
     
   );

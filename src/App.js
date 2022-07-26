@@ -36,14 +36,12 @@ const App = () => {
                     : 
             <div>
                 <Header/>
-                <div>
-                    <Section btnInfo={info} value={value} setValue={setValue} />
+                <div className='mainDiv row m-auto '>
+                    <Section  btnInfo={info} value={value} setValue={setValue} />
                     <Experince info={info[value]}/>
                 </div>
-                
             </div> 
         }
-
     </>
   )
 }
